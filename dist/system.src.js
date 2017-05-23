@@ -1251,7 +1251,7 @@ function loadNodeModule (key, baseURL) {
 
   if (!parentModuleContext) {
     var Module = this._nodeRequire('module');
-    var base = baseURL.substr(isWindows ? 8 : 7);
+    var base = decodeURI(baseURL.substr(isWindows ? 8 : 7));
     parentModuleContext = new Module(base);
     parentModuleContext.paths = Module._nodeModulePaths(base);
   }
